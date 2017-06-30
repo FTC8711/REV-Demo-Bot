@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -49,6 +50,10 @@ public class DemoHardware
         ne = hwMap.dcMotor.get("ne");
         sw = hwMap.dcMotor.get("sw");
         se = hwMap.dcMotor.get("se");
+
+        sw.setDirection(DcMotorSimple.Direction.REVERSE);
+        nw.setDirection(DcMotorSimple.Direction.REVERSE);
+        se.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
         // Define and initialize ALL installed servos.

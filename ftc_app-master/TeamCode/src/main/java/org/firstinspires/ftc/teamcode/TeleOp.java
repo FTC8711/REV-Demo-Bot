@@ -71,31 +71,7 @@ public class TeleOp extends OpMode
         telemetry.addData("Status", "Initialized");
         omni.init(hardwareMap);
 
-        omni.ne.setPower(gamepad1.left_stick_x);
-/*
-        while (gamepad1.left_stick_y > 0.1) {
-            omni.ne.setPower(gamepad1.left_stick_y);
-            omni.nw.setPower(gamepad1.left_stick_y);
-            omni.sw.setPower((gamepad1.left_stick_y) * -1);
-            omni.se.setPower((gamepad1.left_stick_y) * -1);
-        }
 
-
-        while (gamepad1.left_stick_x > 0.1) {
-            omni.nw.setPower(gamepad1.left_stick_x);
-            omni.sw.setPower(gamepad1.left_stick_x);
-            omni.ne.setPower((gamepad1.left_stick_x) * -1);
-            omni.se.setPower((gamepad1.left_stick_x) * -1);
-        }
-
-
-        while (gamepad1.right_stick_x > 0.1 && gamepad1.left_stick_y == 0 && gamepad1.left_stick_x == 0) {
-            omni.ne.setPower(gamepad1.right_stick_x);
-            omni.sw.setPower(gamepad1.right_stick_x);
-            omni.nw.setPower((gamepad1.right_stick_x) * -1);
-            omni.se.setPower((gamepad1.right_stick_x) * -1);
-        }
-        */
 
 
         /* eg: Initialize the hardware variables. Note that the strings used here as parameters
@@ -133,6 +109,31 @@ public class TeleOp extends OpMode
     @Override
     public void loop() {
         telemetry.addData("Status", "Running: " + runtime.toString());
+        omni.ne.setPower(-(gamepad1.left_stick_y));
+        omni.nw.setPower(-(gamepad1.left_stick_y));
+        omni.sw.setPower(-(gamepad1.left_stick_y));
+        omni.se.setPower(gamepad1.left_stick_y);
+
+
+        /*if (gamepad1.left_stick_y > 0.2) {
+            omni.ne.setPower(gamepad1.left_stick_y);
+            omni.nw.setPower(gamepad1.left_stick_y);
+            omni.sw.setPower(-(gamepad1.left_stick_y));
+            omni.se.setPower(-(gamepad1.left_stick_y));
+        }
+
+
+        if (gamepad1.left_stick_x > 0.1) {
+            omni.nw.setPower(gamepad1.left_stick_x);
+            omni.sw.setPower(gamepad1.left_stick_x);
+            omni.ne.setPower(-(gamepad1.left_stick_x));
+            omni.se.setPower(-(gamepad1.left_stick_x));
+        }
+*/
+
+
+
+
 
         // eg: Run wheels in tank mode (note: The joystick goes negative when pushed forwards)
         // leftMotor.setPower(-gamepad1.left_stick_y);
